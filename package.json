@@ -1,0 +1,9 @@
+{
+  "name": "notification-api-server",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "express": "~4.12.4",
+    "aws-sdk": "~2.1.36"
+  }
+}
