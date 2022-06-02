@@ -12,13 +12,13 @@ app.get('/', function (req, res) {
 
 // return queue list
 app.get('/list', function (req, res) {
-    msg.getList;
+    msg.list_queue();
 });
 
 
 // receive queue message
 app.get('/receive', function (req, res) {
-    msg.receiver;
+    msg.receive_queue();
 });
 
 
