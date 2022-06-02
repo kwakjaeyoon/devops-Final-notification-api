@@ -2,14 +2,14 @@
 
 const aws = require('aws-sdk');
 const queueUrl = process.env.NOTIFY_QUEUE_URL;
-// NOTIFY_QUEUE_URL
-aws.config.loadFromPath({ 
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID, 
-    // AWS_ACCESS_KEY_ID
-    secretAccessKey:process.env.AWS_SECRET_ACCESS_KEY,
-    // AWS_SECRET_ACCESS_KEY
-    region: "ap-northeast-2"
-});
+// // NOTIFY_QUEUE_URL
+// aws.config.loadFromPath({ 
+//     accessKeyId: process.env.AWS_ACCESS_KEY_ID, 
+//     // AWS_ACCESS_KEY_ID
+//     secretAccessKey:process.env.AWS_SECRET_ACCESS_KEY,
+//     // AWS_SECRET_ACCESS_KEY
+//     region: "ap-northeast-2"
+// });
 const sqs = new aws.SQS();
 
 const params = {
@@ -19,15 +19,14 @@ const params = {
 
 
 async function list_queue(){
-    const getList = sqs.listQueues(function(err, data) {
-        if(err) {
-            console.log(err);
-        } 
-        else {
-            console.log(data);
-            console.log("There are no messages list in SQS");
-        } 
-    });
+  const getList = sqs.listQueues({}, (err, data) => {
+    if(err) {
+      console.log(err);
+    } else {
+      console.log(data);
+      console.log("There are no messages list in SQS");
+    } 
+  });
 }
 
 
